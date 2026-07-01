@@ -1,0 +1,22 @@
+必要ソフト各種リンク:
+
+freenove: ESP32 WROOM Board　に関するチュートリアル資料や必要ソフトが同梱されている
+https://docs.freenove.com/projects/fnk0090/en/latest/
+
+Thonny:無料のオープンソースのソフトウェアプラットフォーム。初心者向けのPython IDE
+https://thonny.org（公式サイト）
+https://github.com/thonny/thonny/releases/download/v4.1.1/thonny-4.1.1.exe（windowsダウンロードリンク）
+
+
+
+
+開発言語:
+Micro python
+C 言語
+ 
+開発環境:
+Visual Studio Code
+Git Hub
+マイコン/Arduino
+サーバー/Firebase
+
