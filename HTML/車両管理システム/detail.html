@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>車両管理システム - 車両詳細</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>車両管理システム</h1>
+  <button class="logout-btn" onclick="handleLogout()">ログアウト</button>
+</header>
+
+<main>
+  <button class="back-btn" onclick="window.location.href='list.html'">← 一覧に戻る</button>
+
+  <div class="detail-card">
+    <h3>車両情報</h3>
+    <div class="detail-row">
+      <span class="key">車両ID</span>
+      <span class="val" id="d-id"></span>
+    </div>
+    <div class="detail-row">
+      <span class="key">ステータス</span>
+      <span class="val" id="d-status"></span>
+    </div>
+    <div class="detail-row">
+      <span class="key">振動レベル</span>
+      <span class="val" id="d-vibration"></span>
+    </div>
+    <div class="detail-row">
+      <span class="key">ユーザー申告</span>
+      <span class="val" id="d-report"></span>
+    </div>
+    <div class="detail-row">
+      <span class="key">最終同期</span>
+      <span class="val" id="d-synced"></span>
+    </div>
+    <div class="detail-row">
+      <span class="key">最終点検</span>
+      <span class="val" id="d-maintenance"></span>
+    </div>
+  </div>
+
+  <div class="restore-area" id="restore-area" style="display:none;">
+    <p>
+      <strong>要メンテナンス</strong>
+      点検完了後、ステータスを正常に戻してください
+    </p>
+    <button class="btn-restore" id="restore-btn" onclick="restore()">点検完了・復旧する</button>
+  </div>
+
+  <div class="restored-msg" id="restored-msg">
+    <strong>復旧完了</strong>
+    ステータスを正常に更新しました
+  </div>
+</main>
+
+<script type="module" src="js/detail.js"></script>
+</body>
+</html>

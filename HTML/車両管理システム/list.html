@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>車両管理システム - 車両一覧</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>車両管理システム</h1>
+  <button class="logout-btn" onclick="handleLogout()">ログアウト</button>
+</header>
+
+<main>
+  <div class="page-header">
+    <h2>車両一覧</h2>
+  </div>
+
+  <div class="summary">
+    <div class="summary-card">
+      <div class="label">総台数</div>
+      <div class="value" id="total-count">-</div>
+    </div>
+    <div class="summary-card warning">
+      <div class="label">要メンテナンス</div>
+      <div class="value" id="maintenance-count">-</div>
+    </div>
+    <div class="summary-card ok">
+      <div class="label">正常</div>
+      <div class="value" id="normal-count">-</div>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterBikes('all', this)">すべて</button>
+    <button class="filter-btn" onclick="filterBikes('maintenance', this)">要メンテナンス</button>
+    <button class="filter-btn" onclick="filterBikes('normal', this)">正常</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>車両ID</th>
+        <th>ステータス</th>
+        <th>最終同期</th>
+        <th>最終点検</th>
+      </tr>
+    </thead>
+    <tbody id="bike-table">
+      <tr><td colspan="4" class="loading">読み込み中...</td></tr>
+    </tbody>
+  </table>
+</main>
+
+<script type="module" src="js/list.js"></script>
+</body>
+</html>

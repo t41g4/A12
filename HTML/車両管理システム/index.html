@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>車両管理システム - ログイン</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="login-wrap">
+  <div class="login-box">
+    <h2>管理者ログイン</h2>
+    <div class="form-group">
+      <label>メールアドレス</label>
+      <input type="email" id="email" placeholder="admin@example.com">
+    </div>
+    <div class="form-group">
+      <label>パスワード</label>
+      <input type="password" id="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')handleLogin()">
+    </div>
+    <button class="btn-primary" id="login-btn" onclick="handleLogin()">ログイン</button>
+    <p class="error-msg" id="login-error">メールアドレスまたはパスワードが違います</p>
+  </div>
+</div>
+
+<script type="module">
+  import { login, watchAuthForLogin } from "./js/auth.js";
+
+  // すでにログイン済みなら一覧へ
+  watchAuthForLogin(() => { window.location.href = 'list.html'; });
+
+  window.handleLogin = async function() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const btn = document.getElementById('login-btn');
+    const errMsg = document.getElementById('login-error');
+
+    errMsg.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'ログイン中...';
+
+    try {
+      await login(email, password);
+      window.location.href = 'list.html';
+    } catch (e) {
+      errMsg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'ログイン';
+    }
+  };
+</script>
+</body>
+</html>
